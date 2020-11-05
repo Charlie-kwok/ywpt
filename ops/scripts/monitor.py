@@ -59,7 +59,7 @@ class Redis_Connect:
             # self.connection.hmget('stock_402983913259008_442585113984142_445458900223488_1',['physical_stock'])
             if self.connection.hexists('stock_402983913259008_442585113984142_445458900223488_1','physical_stock'):
                 self.connection.hmset('stock_402983913259008_442585113984142_445458900223488_1',{'physical_stock':self.num})
-                print(self.num)
+                # print(self.num)
                 return self.num
 
 
@@ -72,13 +72,15 @@ class Mysql_Connect:
             self.cursor.execute("{}".format(order))
             data  = self.cursor.fetchone()
             self.cursor.close()
-            print(data[0])
+            # print(data[0])
             return data[0]
         def Compare_Good(self):
             num = Redis_Connect('10.0.180.249').Redis_exist()
             time.sleep(1)
             if self.Comment("SELECT physical_stock FROM sto_warehouse_sku_stock WHERE id='451965683419524';") != num:
-                logging_record().record_message(SendMessageWX().Send_Message('【Zabbix】 {host} redis 同步失败，请及时确认。 '.format(host=self.host)))
+                logging_record().record_message(message="测试环境 Redis<=>Mysql 同步失败！",status=False)
+            else:
+                logging_record().record_message(message="测试环境 Redis<=>Mysql 同步成功！",status=True)
 
 
 if __name__ == "__main__":
