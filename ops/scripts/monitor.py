@@ -86,8 +86,8 @@ class Mysql_Connect:
 
 if __name__ == "__main__":
 
-    # Get_Http_status('物流查询','https://api.njtuling.com/logistics/search','post','{"billnum":"9880416657103","company":"邮政小包","appkey":"sigo.erp","appsecret":"5d8008ed26634fadae48f2849a0d1c8d"}')
-    Get_Http_status('短信发送', 'https://api-t.njtuling.com/sms/note/sendtrigger','post','{"appCode": "erp","message": "test","sign": "视客眼镜网","phone": "15960375989"}')
+    Get_Http_status('物流查询','https://api.njtuling.com/logistics/search','post','{"billnum":"9880416657103","company":"邮政小包","appkey":"sigo.erp","appsecret":"5d8008ed26634fadae48f2849a0d1c8d"}')
+    # Get_Http_status('短信发送', 'https://api-t.njtuling.com/sms/note/sendtrigger','post','{"appCode": "erp","message": "test","sign": "视客眼镜网","phone": "15960375989"}')
     # Get_Http_status('地区获取','https://api.njtuling.com/area/district/getbystep?appcode=sigo.b2b&step=2','get','')
     # Get_Http_status('地区IP+端口接口测试', 'http://10.0.150.39:8200/district/getbystep?appcode=sigo.b2b&step=2', 'get', '')
     # Mysql_Connect('10.0.180.29','saascangpei','sigo@123','saascangpei').Comment("{order}".format(order=str("SELECT physical_stock FROM sto_warehouse_sku_stock")))
